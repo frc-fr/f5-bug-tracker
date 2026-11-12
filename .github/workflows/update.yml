@@ -1,0 +1,87 @@
+name: Update data and site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: pip install -e '.[dev]'
+
+      # Renders the F5 articles of my.f5.com, drawn by JavaScript.
+      - name: Install Lightpanda
+        run: |
+          curl -fsSL -o /usr/local/bin/lightpanda https://github.com/lightpanda-io/browser/releases/download/1.0.2/lightpanda-x86_64-linux
+          chmod +x /usr/local/bin/lightpanda
+          lightpanda version
+
+      - name: Test
+        run: |
+          pytest -m "not corpus"
+          node --test tests/site/logic.test.js
+
+      # The pages are not versioned: the cache only spares fetching them again.
+      - uses: actions/cache@v4
+        with:
+          path: .cache/html
+          key: html-${{ github.run_id }}
+          restore-keys: html-
+
+      - name: Collect the release notes and the F5 articles
+        run: f5bugs collect
+
+      # Any warning stops here: the site keeps its last valid data.
+      - name: Extract the bugs
+        run: f5bugs extract
+
+      - name: Check the real pages
+        run: pytest -m corpus
+
+      # A batch of the F5 Bug Tracker per run: the first collection spreads over several runs.
+      - name: Read the Bug Tracker
+        run: f5bugs --batch 1500 tracker
+
+      - name: Commit the data
+        run: |
+          git add sources data
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update BIG-IP data"
+            git push
+          fi
+
+      - name: Build the site
+        run: f5bugs build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

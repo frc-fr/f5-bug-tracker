@@ -1,0 +1,2419 @@
+{
+ "K5903": {
+  "url": "https://my.f5.com/manage/s/article/K5903",
+  "lastmod": "2026-08-06T22:56:27.000Z",
+  "updated": "2026-08-06",
+  "data": {
+   "21.1": {
+    "released": "2026-05-05",
+    "development": "2029-05-05",
+    "support": "2029-05-05"
+   },
+   "21.0": {
+    "released": null,
+    "development": "2026-08-06",
+    "support": "2026-08-06"
+   },
+   "17.5": {
+    "released": "2025-02-27",
+    "development": "2029-01-01",
+    "support": "2029-01-01"
+   },
+   "17.1": {
+    "released": "2023-03-14",
+    "development": "2027-03-31",
+    "support": "2027-03-31"
+   },
+   "17.0": {
+    "released": null,
+    "development": "2023-07-31",
+    "support": "2023-07-31"
+   },
+   "16.1": {
+    "released": null,
+    "development": "2025-07-31",
+    "support": "2025-07-31"
+   },
+   "16.0": {
+    "released": null,
+    "development": "2021-10-07",
+    "support": "2021-10-07"
+   },
+   "15.1": {
+    "released": null,
+    "development": "2024-12-31",
+    "support": "2024-12-31"
+   },
+   "15.0": {
+    "released": null,
+    "development": "2020-08-23",
+    "support": "2020-08-23"
+   },
+   "14.1": {
+    "released": null,
+    "development": "2023-12-31",
+    "support": "2023-12-31"
+   },
+   "14.0": {
+    "released": null,
+    "development": "2019-11-09",
+    "support": "2019-11-09"
+   },
+   "13.1": {
+    "released": null,
+    "development": "2022-12-31",
+    "support": "2023-12-31"
+   },
+   "13.0": {
+    "released": null,
+    "development": "2018-05-22",
+    "support": "2019-05-22"
+   },
+   "12.1": {
+    "released": null,
+    "development": "2021-05-18",
+    "support": "2022-05-18"
+   },
+   "12.0": {
+    "released": null,
+    "development": "2016-12-02",
+    "support": "2017-12-02"
+   },
+   "11.6": {
+    "released": null,
+    "development": "2021-05-10",
+    "support": "2022-05-10"
+   },
+   "11.5": {
+    "released": null,
+    "development": "2019-04-08",
+    "support": "2020-04-08"
+   },
+   "11.4": {
+    "released": null,
+    "development": "2016-09-17",
+    "support": "2017-09-17"
+   },
+   "11.3": {
+    "released": null,
+    "development": "2014-12-17",
+    "support": "2015-12-17"
+   },
+   "11.2": {
+    "released": null,
+    "development": "2017-12-31",
+    "support": "2018-12-31"
+   },
+   "11.1": {
+    "released": null,
+    "development": "2013-11-28",
+    "support": "2014-11-28"
+   },
+   "11.0": {
+    "released": null,
+    "development": "2013-08-24",
+    "support": "2014-08-24"
+   },
+   "10.2": {
+    "released": null,
+    "development": "2015-12-31",
+    "support": "2016-12-31"
+   },
+   "10.1": {
+    "released": null,
+    "development": "2015-03-01",
+    "support": "2016-03-01"
+   },
+   "10.0": {
+    "released": null,
+    "development": "2012-08-31",
+    "support": "2013-08-31"
+   },
+   "9.6": {
+    "released": null,
+    "development": "2011-03-31",
+    "support": "2012-03-31"
+   },
+   "9.4": {
+    "released": null,
+    "development": "2012-08-31",
+    "support": "2013-08-31"
+   },
+   "9.2": {
+    "released": null,
+    "development": "2007-07-31",
+    "support": "2008-07-31"
+   },
+   "9.1": {
+    "released": null,
+    "development": "2008-04-30",
+    "support": "2009-04-30"
+   },
+   "9.0": {
+    "released": null,
+    "development": "2006-05-18",
+    "support": "2007-05-18"
+   },
+   "4.6": {
+    "released": null,
+    "development": "2008-12-31",
+    "support": "2009-12-31"
+   },
+   "4.2": {
+    "released": null,
+    "development": "2005-06-30",
+    "support": "2006-06-30"
+   }
+  }
+ },
+ "K9412": {
+  "url": "https://my.f5.com/manage/s/article/K9412",
+  "lastmod": "2026-07-07T03:42:01.000Z",
+  "updated": "2026-07-07",
+  "data": {
+   "17.0.0": {
+    "build": "0.0.22",
+    "released": "2022-04-26",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450"
+    ]
+   },
+   "17.1.0": {
+    "build": "0.0.16",
+    "released": "2023-03-14",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "17.1.1": {
+    "build": "0.0.6",
+    "released": "2023-11-01",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "17.1.2": {
+    "build": "0.0.8",
+    "released": "2024-12-03",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "17.1.3": {
+    "build": "0.0.11",
+    "released": "2025-10-10",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "17.5.0": {
+    "build": "0.0.15",
+    "released": "2025-02-27",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "17.5.1": {
+    "build": "0.0.7",
+    "released": "2025-06-26",
+    "platforms": [
+     "10150s-N",
+     "10350v-F",
+     "10350v-N",
+     "i850",
+     "i2600",
+     "i2800",
+     "i4600",
+     "i4800",
+     "i5600",
+     "i5800",
+     "i5820-DF",
+     "i7600",
+     "i7800",
+     "i7820-DF",
+     "i10600",
+     "i10800",
+     "i11600",
+     "i11800",
+     "i11400-DS",
+     "i11600-DS",
+     "i11800-DS",
+     "i15600",
+     "i15800",
+     "i15820-DF",
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VIPRION B2150",
+     "VIPRION B2250",
+     "VIPRION B4450",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "21.0.0": {
+    "build": "0.0.10",
+    "released": "2025-11-06",
+    "platforms": [
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   },
+   "21.1.0": {
+    "build": "0.0.38",
+    "released": "2026-05-05",
+    "platforms": [
+     "r12900-DS",
+     "r12800-DS",
+     "r12600-DS",
+     "r10920-DF",
+     "r10900",
+     "r10800",
+     "r10600",
+     "r5920-DF",
+     "r5900",
+     "r5800",
+     "r5600",
+     "r4800",
+     "r4600",
+     "r2800",
+     "r2600",
+     "VELOS BX110",
+     "VELOS BX520"
+    ]
+   }
+  }
+ },
+ "K9502": {
+  "url": "https://my.f5.com/manage/s/article/K9502",
+  "lastmod": "2026-10-23T23:50:56.000Z",
+  "updated": "2026-10-23",
+  "data": {
+   "9.1.1": null,
+   "9.1.2": null,
+   "9.1.3": null,
+   "9.3.0": null,
+   "9.3.1": null,
+   "9.4.0": null,
+   "9.4.1": null,
+   "9.4.2": null,
+   "9.4.3": null,
+   "9.4.4": null,
+   "9.4.5": null,
+   "9.4.6": null,
+   "9.4.7": null,
+   "9.4.8": null,
+   "9.6.1": null,
+   "10.0.0": null,
+   "10.0.1": null,
+   "10.1.0": null,
+   "10.2.0": null,
+   "10.2.1": null,
+   "10.2.2": null,
+   "10.2.3": null,
+   "10.2.4": null,
+   "11.0.0": null,
+   "11.1.0": null,
+   "11.2.0": null,
+   "11.2.1": null,
+   "11.3.0": null,
+   "11.4.0": null,
+   "11.4.1": null,
+   "11.5.0": "11.5.0.7",
+   "11.5.1": "11.5.1.11",
+   "11.5.2": "11.5.2.1",
+   "11.5.3": "11.5.3.2",
+   "11.5.4": "11.5.4.4",
+   "11.5.5": null,
+   "11.5.6": null,
+   "11.5.7": null,
+   "11.5.8": null,
+   "11.5.9": null,
+   "11.5.10": null,
+   "11.6.0": "11.6.0.8",
+   "11.6.1": "11.6.1.2",
+   "11.6.2": "11.6.2.1",
+   "11.6.3": "11.6.3.4",
+   "11.6.4": null,
+   "11.6.5": "11.6.5.3",
+   "12.0.0": "12.0.0.4",
+   "12.1.0": "12.1.0.2",
+   "12.1.1": "12.1.1.2",
+   "12.1.2": "12.1.2.2",
+   "12.1.3": "12.1.3.7",
+   "12.1.4": "12.1.4.1",
+   "12.1.5": "12.1.5.3",
+   "12.1.6": null,
+   "13.0.0": "13.0.0.3",
+   "13.0.1": null,
+   "13.1.0": "13.1.0.8",
+   "13.1.1": "13.1.1.5",
+   "13.1.3": "13.1.3.6",
+   "13.1.4": "13.1.4.1",
+   "13.1.5": "13.1.5.1",
+   "14.0.0": "14.0.0.5",
+   "14.0.1": "14.0.1.1",
+   "14.1.0": "14.1.0.6",
+   "14.1.2": "14.1.2.8",
+   "14.1.3": "14.1.3.1",
+   "14.1.4": "14.1.4.6",
+   "14.1.5": "14.1.5.6",
+   "15.0.0": null,
+   "15.0.1": "15.0.1.4",
+   "15.1.0": "15.1.0.5",
+   "15.1.1": null,
+   "15.1.2": "15.1.2.1",
+   "15.1.3": "15.1.3.1",
+   "15.1.4": "15.1.4.1",
+   "15.1.5": "15.1.5.1",
+   "15.1.6": "15.1.6.1",
+   "15.1.7": null,
+   "15.1.8": "15.1.8.2",
+   "15.1.9": "15.1.9.1",
+   "15.1.10": "15.1.10.8",
+   "16.0.0": "16.0.0.1",
+   "16.0.1": "16.0.1.2",
+   "16.1.0": null,
+   "16.1.1": null,
+   "16.1.2": "16.1.2.2",
+   "16.1.3": "16.1.3.5",
+   "16.1.4": "16.1.4.3",
+   "16.1.5": "16.1.5.2",
+   "16.1.6": "16.1.6.1",
+   "17.0.0": "17.0.0.2",
+   "17.1.0": "17.1.0.3",
+   "17.1.1": "17.1.1.4",
+   "17.1.2": "17.1.2.2",
+   "17.1.3": "17.1.3.7",
+   "17.5.0": null,
+   "17.5.1": "17.5.1.11",
+   "21.0.0": "21.0.0.3",
+   "21.1.0": "21.1.0.4"
+  }
+ },
+ "K4309": {
+  "url": "https://my.f5.com/manage/s/article/K4309",
+  "lastmod": "2026-11-06T22:36:16.000Z",
+  "updated": "2026-11-06",
+  "data": {
+   "1000": {
+    "code": "D39",
+    "shipped": "2004-06",
+    "end_of_sale": "2006-03-15",
+    "end_of_new_software": "2008-03-31",
+    "end_of_software": "2009-03-31",
+    "extended": "2009-03-31",
+    "end_of_support": "2013-03-31",
+    "end_of_rma": "2013-03-31"
+   },
+   "10000s": {
+    "code": "D113",
+    "shipped": "2012-09",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "10000s LTM standalone": {
+    "code": "D113",
+    "shipped": "2012-09",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "10050s": {
+    "code": "D113",
+    "shipped": "2014-07",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "10055s": {
+    "code": "D113",
+    "shipped": "2015-04",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "10150s NEBS": {
+    "code": "D112",
+    "shipped": "2016-01",
+    "end_of_sale": "2024-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2027-04-01",
+    "extended": "2027-04-01",
+    "end_of_support": "2031-04-01",
+    "end_of_rma": "2031-04-01"
+   },
+   "10200v": {
+    "code": "D113",
+    "shipped": "2012-09",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "10200v FIPS": {
+    "code": "D113",
+    "shipped": "2014-02",
+    "end_of_sale": "2019-10-01",
+    "end_of_new_software": "2021-10-01",
+    "end_of_software": "2022-10-01",
+    "extended": "2022-10-01",
+    "end_of_support": "2026-10-01",
+    "end_of_rma": "2026-10-01"
+   },
+   "10200v LTM standalone": {
+    "code": "D113",
+    "shipped": "2012-09",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "10200v SSL": {
+    "code": "D113",
+    "shipped": "2014-08",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "10250v": {
+    "code": "D113",
+    "shipped": "2014-07",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "10255v": {
+    "code": "D113",
+    "shipped": "2015-04",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "10350v": {
+    "code": "D112",
+    "shipped": "2016-01",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "10350v FIPS": {
+    "code": "D112",
+    "shipped": "2016-05",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "10350v NEBS": {
+    "code": "D112",
+    "shipped": "2015-01",
+    "end_of_sale": "2024-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2027-04-01",
+    "extended": "2027-04-01",
+    "end_of_support": "2031-04-01",
+    "end_of_rma": "2031-04-01"
+   },
+   "11000": {
+    "code": "E101",
+    "shipped": "2011-10",
+    "end_of_sale": "2016-04-01",
+    "end_of_new_software": "2018-04-01",
+    "end_of_software": "2019-04-01",
+    "extended": "2019-04-01",
+    "end_of_support": "2023-04-01",
+    "end_of_rma": "2023-04-01"
+   },
+   "11000 FIPS": {
+    "code": "E101",
+    "shipped": "2011-10",
+    "end_of_sale": "2014-01-01",
+    "end_of_new_software": "2016-01-01",
+    "end_of_software": "2017-01-01",
+    "extended": "2017-01-01",
+    "end_of_support": "2021-01-01",
+    "end_of_rma": "2021-01-01"
+   },
+   "11050": {
+    "code": "E102",
+    "shipped": "2011-10",
+    "end_of_sale": "2016-04-01",
+    "end_of_new_software": "2018-04-01",
+    "end_of_software": "2019-04-01",
+    "extended": "2019-04-01",
+    "end_of_support": "2023-04-01",
+    "end_of_rma": "2023-04-01"
+   },
+   "11050 FIPS": {
+    "code": "E102",
+    "shipped": "2011-10",
+    "end_of_sale": "2014-01-01",
+    "end_of_new_software": "2016-01-01",
+    "end_of_software": "2017-01-01",
+    "extended": "2017-01-01",
+    "end_of_support": "2021-01-01",
+    "end_of_rma": "2021-01-01"
+   },
+   "11050 NEBS": {
+    "code": "E102",
+    "shipped": "2011-10",
+    "end_of_sale": "2016-04-01",
+    "end_of_new_software": "2018-04-01",
+    "end_of_software": "2019-04-01",
+    "extended": "2019-04-01",
+    "end_of_support": "2023-04-01",
+    "end_of_rma": "2023-04-01"
+   },
+   "12250v": {
+    "code": "D111",
+    "shipped": "2015-01",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "1500": {
+    "code": "C36",
+    "shipped": "2004-08",
+    "end_of_sale": "2009-08-01",
+    "end_of_new_software": "2011-08-01",
+    "end_of_software": "2012-08-01",
+    "extended": "2012-08-01",
+    "end_of_support": "2016-07-31",
+    "end_of_rma": "2016-07-31"
+   },
+   "1600": {
+    "code": "C102",
+    "shipped": "2008-07",
+    "end_of_sale": "2014-10-01",
+    "end_of_new_software": "2016-10-01",
+    "end_of_software": "2017-10-01",
+    "extended": "2017-10-01",
+    "end_of_support": "2021-10-01",
+    "end_of_rma": "2021-10-01"
+   },
+   "1600LC": {
+    "code": "C102",
+    "shipped": "2008-07",
+    "end_of_sale": "2015-02-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "2000": {
+    "code": "D45",
+    "shipped": "2001-12",
+    "end_of_sale": "2003-06-30",
+    "end_of_new_software": "2006-06-30",
+    "end_of_software": "2007-06-30",
+    "extended": "2007-06-30",
+    "end_of_support": "2008-06-30",
+    "end_of_rma": "2008-06-30"
+   },
+   "2000s": {
+    "code": "C112",
+    "shipped": "2012-11",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "2200s": {
+    "code": "C112",
+    "shipped": "2012-11",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "2400": {
+    "code": "D44",
+    "shipped": "2004-12",
+    "end_of_sale": "2006-03-15",
+    "end_of_new_software": "2008-03-31",
+    "end_of_software": "2009-03-31",
+    "extended": null,
+    "end_of_support": "2013-03-31",
+    "end_of_rma": "2013-03-31"
+   },
+   "3400": {
+    "code": "C62",
+    "shipped": "2004-09",
+    "end_of_sale": "2009-08-01",
+    "end_of_new_software": "2011-08-01",
+    "end_of_software": "2012-08-01",
+    "extended": null,
+    "end_of_support": "2016-07-31",
+    "end_of_rma": "2016-07-31"
+   },
+   "3410": {
+    "code": "C100",
+    "shipped": "2004-09",
+    "end_of_sale": "2009-08-01",
+    "end_of_new_software": "2011-08-01",
+    "end_of_software": "2012-08-01",
+    "extended": null,
+    "end_of_support": "2016-07-31",
+    "end_of_rma": "2016-07-31"
+   },
+   "3600": {
+    "code": "C103",
+    "shipped": "2008-07",
+    "end_of_sale": "2014-10-01",
+    "end_of_new_software": "2016-10-01",
+    "end_of_software": "2017-10-01",
+    "extended": "2017-10-01",
+    "end_of_support": "2021-10-01",
+    "end_of_rma": "2021-10-01"
+   },
+   "3900": {
+    "code": "C106",
+    "shipped": "2009-08",
+    "end_of_sale": "2015-02-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "4000s": {
+    "code": "C113",
+    "shipped": "2012-10",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "4100": {
+    "code": "D46",
+    "shipped": "2006-03",
+    "end_of_sale": "2009-08-01",
+    "end_of_new_software": "2011-08-01",
+    "end_of_software": "2012-07-31",
+    "extended": null,
+    "end_of_support": "2016-07-30",
+    "end_of_rma": "2016-07-30"
+   },
+   "4200v": {
+    "code": "C113",
+    "shipped": "2012-10",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "4340": {
+    "code": "D101",
+    "shipped": "2009-10",
+    "end_of_sale": "2010-06-01",
+    "end_of_new_software": "2012-06-01",
+    "end_of_software": "2013-06-01",
+    "extended": null,
+    "end_of_support": "2017-06-01",
+    "end_of_rma": "2017-06-01"
+   },
+   "4500": {
+    "code": "D43",
+    "shipped": "2006-06",
+    "end_of_sale": "2009-07-01",
+    "end_of_new_software": "2011-07-01",
+    "end_of_software": "2012-07-01",
+    "extended": "2012-07-01",
+    "end_of_support": "2016-07-01",
+    "end_of_rma": "2016-07-01"
+   },
+   "5000": {
+    "code": "D50",
+    "shipped": "2004-11",
+    "end_of_sale": "2003-06-30",
+    "end_of_new_software": "2006-06-30",
+    "end_of_software": "2007-06-30",
+    "extended": "2007-06-30",
+    "end_of_support": "2008-06-30",
+    "end_of_rma": "2008-06-30"
+   },
+   "5000s": {
+    "code": "C109",
+    "shipped": "2013-03",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "5000s LTM standalone": {
+    "code": "C109",
+    "shipped": "2013-03",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "5050s": {
+    "code": "C109",
+    "shipped": "2014-06",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "5100": {
+    "code": "D51f",
+    "shipped": "2002-12",
+    "end_of_sale": "2006-03-31",
+    "end_of_new_software": "2008-03-31",
+    "end_of_software": "2009-03-31",
+    "extended": "2009-03-31",
+    "end_of_support": "2013-03-31",
+    "end_of_rma": "2013-03-31"
+   },
+   "520": {
+    "code": "D35",
+    "shipped": "2002-07",
+    "end_of_sale": "2007-10-01",
+    "end_of_new_software": "2009-10-01",
+    "end_of_software": "2010-10-01",
+    "extended": "2010-10-01",
+    "end_of_support": "2014-10-01",
+    "end_of_rma": "2014-10-01"
+   },
+   "5200v": {
+    "code": "C109",
+    "shipped": "2013-09",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "5200v LTM standalone / SSL": {
+    "code": "C109",
+    "shipped": "2013-09",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "5250v": {
+    "code": "C109",
+    "shipped": "2014-03",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "5250v FIPS": {
+    "code": "C109",
+    "shipped": "2014-10",
+    "end_of_sale": "2019-10-01",
+    "end_of_new_software": "2021-10-01",
+    "end_of_software": "2022-10-01",
+    "extended": "2022-10-01",
+    "end_of_support": "2026-10-01",
+    "end_of_rma": "2026-10-01"
+   },
+   "540": {
+    "code": "D35",
+    "shipped": "2002-07",
+    "end_of_sale": "2006-03-31",
+    "end_of_new_software": "2008-03-31",
+    "end_of_software": "2009-03-31",
+    "extended": "2009-03-31",
+    "end_of_support": "2013-03-31",
+    "end_of_rma": "2013-03-31"
+   },
+   "6400": {
+    "code": "D63",
+    "shipped": "2004-11",
+    "end_of_sale": "2009-12-01",
+    "end_of_new_software": "2011-12-01",
+    "end_of_software": "2012-12-01",
+    "extended": "2012-12-01",
+    "end_of_support": "2016-12-31",
+    "end_of_rma": "2016-12-31"
+   },
+   "6400 FIPS": {
+    "code": "D63",
+    "shipped": "2005-09",
+    "end_of_sale": "2010-10-01",
+    "end_of_new_software": null,
+    "end_of_software": "2013-10-01",
+    "extended": "2013-10-01",
+    "end_of_support": "2017-10-01",
+    "end_of_rma": "2017-10-01"
+   },
+   "6400 NEBS": {
+    "code": "D63",
+    "shipped": "2007-10",
+    "end_of_sale": "2011-10-01",
+    "end_of_new_software": null,
+    "end_of_software": "2014-10-01",
+    "extended": "2014-10-01",
+    "end_of_support": "2018-10-01",
+    "end_of_rma": "2018-10-01"
+   },
+   "6800": {
+    "code": "D68",
+    "shipped": "2008-03",
+    "end_of_sale": "2009-12-01",
+    "end_of_new_software": "2011-12-01",
+    "end_of_software": "2012-12-01",
+    "extended": "2012-12-01",
+    "end_of_support": "2016-12-01",
+    "end_of_rma": "2016-12-01"
+   },
+   "6800 FIPS": {
+    "code": "D68",
+    "shipped": "2008-05",
+    "end_of_sale": "2010-10-01",
+    "end_of_new_software": null,
+    "end_of_software": "2013-10-01",
+    "extended": "2013-10-01",
+    "end_of_support": "2017-10-01",
+    "end_of_rma": "2017-10-01"
+   },
+   "6900": {
+    "code": "D104",
+    "shipped": "2008-08",
+    "end_of_sale": "2015-02-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "6900 FIPS": {
+    "code": "D104",
+    "shipped": "2009-02",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2018-07-01",
+    "extended": "2018-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "6900-NEBS": {
+    "code": "D104",
+    "shipped": "2010-05",
+    "end_of_sale": "2016-04-01",
+    "end_of_new_software": "2018-04-01",
+    "end_of_software": "2019-04-01",
+    "extended": "2019-04-01",
+    "end_of_support": "2023-04-01",
+    "end_of_rma": "2023-04-01"
+   },
+   "6900s SSL": {
+    "code": "D104",
+    "shipped": "2011-11",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2018-07-01",
+    "extended": "2018-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "7000s": {
+    "code": "D110",
+    "shipped": "2013-11",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "7000s LTM standalone": {
+    "code": "D110",
+    "shipped": "2013-11",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "7050s": {
+    "code": "D110",
+    "shipped": "2014-06",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "7055s": {
+    "code": "D110",
+    "shipped": "2015-05",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "7200v": {
+    "code": "D110",
+    "shipped": "2013-06",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "7200v FIPS": {
+    "code": "D110",
+    "shipped": "2014-02",
+    "end_of_sale": "2019-10-01",
+    "end_of_new_software": "2021-10-01",
+    "end_of_software": "2022-10-01",
+    "extended": "2022-10-01",
+    "end_of_support": "2026-10-01",
+    "end_of_rma": "2026-10-01"
+   },
+   "7200v LTM standalone": {
+    "code": "D110",
+    "shipped": "2013-06",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "7200v SSL": {
+    "code": "D110",
+    "shipped": "2013-01",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "7250v": {
+    "code": "D110",
+    "shipped": "2014-06",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "7255v": {
+    "code": "D110",
+    "shipped": "2015-05",
+    "end_of_sale": "2019-08-01",
+    "end_of_new_software": "2021-08-01",
+    "end_of_software": "2022-08-01",
+    "extended": "2022-08-01",
+    "end_of_support": "2026-08-01",
+    "end_of_rma": "2026-08-01"
+   },
+   "800": {
+    "code": "C114",
+    "shipped": "2013-07",
+    "end_of_sale": "2017-01-31",
+    "end_of_new_software": "2019-01-31",
+    "end_of_software": "2020-01-31",
+    "extended": "2020-01-31",
+    "end_of_support": "2024-01-31",
+    "end_of_rma": "2024-01-31"
+   },
+   "8400": {
+    "code": "D84",
+    "shipped": "2007-02",
+    "end_of_sale": "2010-07-01",
+    "end_of_new_software": null,
+    "end_of_software": "2013-07-01",
+    "extended": "2013-07-01",
+    "end_of_support": "2017-07-01",
+    "end_of_rma": "2017-07-01"
+   },
+   "8400 FIPS / NEBS": {
+    "code": "D84",
+    "shipped": "2010-09",
+    "end_of_sale": "2010-10-01",
+    "end_of_new_software": null,
+    "end_of_software": "2013-10-01",
+    "extended": "2013-10-01",
+    "end_of_support": "2017-10-01",
+    "end_of_rma": "2017-10-01"
+   },
+   "8800": {
+    "code": "D88",
+    "shipped": "2007-02",
+    "end_of_sale": "2010-07-01",
+    "end_of_new_software": null,
+    "end_of_software": "2013-07-01",
+    "extended": "2013-07-01",
+    "end_of_support": "2017-07-01",
+    "end_of_rma": "2017-07-01"
+   },
+   "8900": {
+    "code": "D106",
+    "shipped": "2010-04",
+    "end_of_sale": "2015-02-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "8950": {
+    "code": "D107",
+    "shipped": "2011-10",
+    "end_of_sale": "2015-02-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "8950s": {
+    "code": "D107",
+    "shipped": "2011-10",
+    "end_of_sale": "2014-10-01",
+    "end_of_new_software": "2017-02-01",
+    "end_of_software": "2018-02-01",
+    "extended": "2018-02-01",
+    "end_of_support": "2022-02-01",
+    "end_of_rma": "2022-02-01"
+   },
+   "ADC and ADF bundle 11000": {
+    "code": "E101",
+    "shipped": "2011-10",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 11050": {
+    "code": "E102",
+    "shipped": "2011-10",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 2000s": {
+    "code": "C112",
+    "shipped": "2012-11",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 2200s": {
+    "code": "C112",
+    "shipped": "2012-11",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 4200v": {
+    "code": "C113",
+    "shipped": "2012-10",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 5200v": {
+    "code": "C109",
+    "shipped": "2013-09",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "ADC and ADF bundle 7200v": {
+    "code": "D110",
+    "shipped": "2013-06",
+    "end_of_sale": "2015-07-01",
+    "end_of_new_software": "2017-07-01",
+    "end_of_software": "2020-07-01",
+    "extended": "2020-07-01",
+    "end_of_support": "2022-07-01",
+    "end_of_rma": "2022-07-01"
+   },
+   "BIG-IQ 7000": {
+    "code": "D110",
+    "shipped": "2014-09",
+    "end_of_sale": "2021-10-01",
+    "end_of_new_software": "2023-10-01",
+    "end_of_software": "2024-10-01",
+    "extended": "2024-10-01",
+    "end_of_support": "2028-10-01",
+    "end_of_rma": "2028-10-01"
+   },
+   "BX110": {
+    "code": "A118",
+    "shipped": "2021-04",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "BX520": {
+    "code": "A119",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "CX1610": {
+    "code": "R100",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "CX1610-N": {
+    "code": "R100",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "CX410": {
+    "code": "F101",
+    "shipped": "2021-04",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "CX410-N": {
+    "code": "F101",
+    "shipped": "2021-04",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "Enterprise Manager 3000": {
+    "code": "D38",
+    "shipped": "2006-09",
+    "end_of_sale": "2010-03-01",
+    "end_of_new_software": "2012-03-01",
+    "end_of_software": "2013-03-01",
+    "extended": "2013-03-01",
+    "end_of_support": "2017-03-01",
+    "end_of_rma": "2017-03-01"
+   },
+   "Enterprise Manager 4000": {
+    "code": "C106",
+    "shipped": "2010-02",
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "Enterprise Manager 500": {
+    "code": "C36",
+    "shipped": "2006-11",
+    "end_of_sale": "2010-03-01",
+    "end_of_new_software": "2011-12-01",
+    "end_of_software": "2012-12-01",
+    "extended": "2012-12-01",
+    "end_of_support": "2016-12-01",
+    "end_of_rma": "2016-12-01"
+   },
+   "Herculon i10800": {
+    "code": "C122",
+    "shipped": "2016-12",
+    "end_of_sale": "2018-07-01",
+    "end_of_new_software": "2018-07-01",
+    "end_of_software": "2019-07-01",
+    "extended": "2019-07-01",
+    "end_of_support": "2021-07-01",
+    "end_of_rma": "2021-07-01"
+   },
+   "Herculon i2800": {
+    "code": "C120",
+    "shipped": "2016-12",
+    "end_of_sale": "2018-07-01",
+    "end_of_new_software": "2018-07-01",
+    "end_of_software": "2019-07-01",
+    "extended": "2019-07-01",
+    "end_of_support": "2021-07-01",
+    "end_of_rma": "2021-07-01"
+   },
+   "Herculon i5800": {
+    "code": "C121",
+    "shipped": "2016-12",
+    "end_of_sale": "2018-07-01",
+    "end_of_new_software": "2018-07-01",
+    "end_of_software": "2019-07-01",
+    "extended": "2019-07-01",
+    "end_of_support": "2021-07-01",
+    "end_of_rma": "2021-07-01"
+   },
+   "VIPRION 2400 Chassis": {
+    "code": "F100",
+    "shipped": "2011-06",
+    "end_of_sale": "2023-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2026-04-01",
+    "extended": "2026-04-01",
+    "end_of_support": "2030-04-01",
+    "end_of_rma": "2030-04-01"
+   },
+   "VIPRION 4400 Chassis": {
+    "code": "J100",
+    "shipped": "2007-12",
+    "end_of_sale": "2014-04-01",
+    "end_of_new_software": "2016-04-01",
+    "end_of_software": "2017-04-01",
+    "extended": "2017-04-01",
+    "end_of_support": "2021-04-01",
+    "end_of_rma": "2021-04-01"
+   },
+   "VIPRION 4400 Chassis DC Power NEBS": {
+    "code": "J101",
+    "shipped": "2007-12",
+    "end_of_sale": "2014-07-01",
+    "end_of_new_software": "2016-07-01",
+    "end_of_software": "2017-07-01",
+    "extended": "2017-07-01",
+    "end_of_support": "2021-07-01",
+    "end_of_rma": "2021-07-01"
+   },
+   "VIPRION 4480 Chassis": {
+    "code": "J102",
+    "shipped": "2012-06",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2033-01-01",
+    "end_of_rma": "2033-01-01"
+   },
+   "VIPRION 4800 Chassis": {
+    "code": "S100",
+    "shipped": "2010-05",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2033-01-01",
+    "end_of_rma": "2033-01-01"
+   },
+   "VIPRION B2100": {
+    "code": "A109",
+    "shipped": null,
+    "end_of_sale": "2015-10-01",
+    "end_of_new_software": "2017-10-01",
+    "end_of_software": "2018-10-01",
+    "extended": "2018-10-01",
+    "end_of_support": "2022-10-01",
+    "end_of_rma": "2022-10-01"
+   },
+   "VIPRION B2150": {
+    "code": "A113",
+    "shipped": "2013-12",
+    "end_of_sale": "2023-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2026-04-01",
+    "extended": "2026-04-01",
+    "end_of_support": "2030-04-01",
+    "end_of_rma": "2030-04-01"
+   },
+   "VIPRION B2250": {
+    "code": "A112",
+    "shipped": "2014-10",
+    "end_of_sale": "2023-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2026-04-01",
+    "extended": "2026-04-01",
+    "end_of_support": "2030-04-01",
+    "end_of_rma": "2030-04-01"
+   },
+   "VIPRION B4300": {
+    "code": "A108",
+    "shipped": "2012-07",
+    "end_of_sale": "2018-04-01",
+    "end_of_new_software": "2020-04-01",
+    "end_of_software": "2021-04-01",
+    "extended": "2021-04-01",
+    "end_of_support": "2025-04-01",
+    "end_of_rma": "2025-04-01"
+   },
+   "VIPRION B4340N Blade NEBS": {
+    "code": "A110",
+    "shipped": "2013-07",
+    "end_of_sale": "2018-07-01",
+    "end_of_new_software": "2020-07-01",
+    "end_of_software": "2021-07-01",
+    "extended": "2021-07-01",
+    "end_of_support": "2025-07-01",
+    "end_of_rma": "2025-07-01"
+   },
+   "VIPRION B4450": {
+    "code": "A114",
+    "shipped": "2016-06",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2033-01-01",
+    "end_of_rma": "2033-01-01"
+   },
+   "VIPRION B4460": {
+    "code": "A121",
+    "shipped": "2016-06",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2033-01-01",
+    "end_of_rma": "2033-01-01"
+   },
+   "VIPRION C2200 Chassis": {
+    "code": "D114",
+    "shipped": "2014-05",
+    "end_of_sale": "2023-04-01",
+    "end_of_new_software": "2025-04-01",
+    "end_of_software": "2026-04-01",
+    "extended": "2026-04-01",
+    "end_of_support": "2030-04-01",
+    "end_of_rma": "2030-04-01"
+   },
+   "i10600": {
+    "code": "C116",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i10800": {
+    "code": "C116",
+    "shipped": "2016-09",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i11400-DS": {
+    "code": "C124",
+    "shipped": "2018-06",
+    "end_of_sale": "2024-10-01",
+    "end_of_new_software": null,
+    "end_of_software": "2027-10-01",
+    "extended": "2027-10-01",
+    "end_of_support": "2031-10-01",
+    "end_of_rma": "2031-10-01"
+   },
+   "i11600": {
+    "code": "C123",
+    "shipped": "2018-01",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i11600-DS": {
+    "code": "C124",
+    "shipped": "2018-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": "2027-10-01",
+    "extended": "2027-10-01",
+    "end_of_support": "2031-10-01",
+    "end_of_rma": "2031-10-01"
+   },
+   "i11800": {
+    "code": "C123",
+    "shipped": "2018-01",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i11800-DS": {
+    "code": "C124",
+    "shipped": "2018-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": "2027-10-01",
+    "extended": "2027-10-01",
+    "end_of_support": "2031-10-01",
+    "end_of_rma": "2031-10-01"
+   },
+   "i15600": {
+    "code": "D116",
+    "shipped": "2018-03",
+    "end_of_sale": "2027-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2030-01-01",
+    "end_of_rma": "2030-01-01"
+   },
+   "i15800": {
+    "code": "D116",
+    "shipped": "2018-03",
+    "end_of_sale": "2027-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2030-01-01",
+    "end_of_rma": "2030-01-01"
+   },
+   "i15820-DF": {
+    "code": "C125",
+    "shipped": "2021-12",
+    "end_of_sale": "2027-01-01",
+    "end_of_new_software": "2028-01-01",
+    "end_of_software": "2029-01-01",
+    "extended": "2029-01-01",
+    "end_of_support": "2030-01-01",
+    "end_of_rma": "2030-01-01"
+   },
+   "i2600": {
+    "code": "C117",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i2800": {
+    "code": "C117",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i4600": {
+    "code": "C115",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i4800": {
+    "code": "C115",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i5600": {
+    "code": "C119",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i5800": {
+    "code": "C119",
+    "shipped": "2016-09",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i5820-DF": {
+    "code": "C125",
+    "shipped": "2018-06",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2027-01-01",
+    "end_of_software": "2027-10-01",
+    "extended": "2027-10-01",
+    "end_of_support": "2031-10-01",
+    "end_of_rma": "2031-10-01"
+   },
+   "i7600": {
+    "code": "C118",
+    "shipped": "2016-11",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i7800": {
+    "code": "C118",
+    "shipped": "2016-09",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "i7820-DF": {
+    "code": "C126",
+    "shipped": "2018-06",
+    "end_of_sale": "2026-01-01",
+    "end_of_new_software": "2027-01-01",
+    "end_of_software": "2027-10-01",
+    "extended": "2027-10-01",
+    "end_of_support": "2031-10-01",
+    "end_of_rma": "2031-10-01"
+   },
+   "i850": {
+    "code": "C117",
+    "shipped": "2017-12",
+    "end_of_sale": "2024-01-01",
+    "end_of_new_software": "2026-01-01",
+    "end_of_software": "2027-01-01",
+    "extended": "2027-01-01",
+    "end_of_support": "2031-01-01",
+    "end_of_rma": "2031-01-01"
+   },
+   "r10600": {
+    "code": "C128",
+    "shipped": "2022-03",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r10800": {
+    "code": "C128",
+    "shipped": "2022-03",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r10900": {
+    "code": "C128",
+    "shipped": "2022-01",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r10920-DF": {
+    "code": "C137",
+    "shipped": "2023-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r12600-DS": {
+    "code": "C138",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r12800-DS": {
+    "code": "C138",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r12900-DS": {
+    "code": "C138",
+    "shipped": "2023-10",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r2600": {
+    "code": "C130",
+    "shipped": "2022-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r2800": {
+    "code": "C130",
+    "shipped": "2022-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r4600": {
+    "code": "C131",
+    "shipped": "2022-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r4800": {
+    "code": "C131",
+    "shipped": "2022-06",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r5600": {
+    "code": "C129",
+    "shipped": "2022-03",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r5800": {
+    "code": "C129",
+    "shipped": "2022-03",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r5900": {
+    "code": "C129",
+    "shipped": "2022-01",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   },
+   "r5920-DF": {
+    "code": "C136",
+    "shipped": "2023-05",
+    "end_of_sale": null,
+    "end_of_new_software": null,
+    "end_of_software": null,
+    "extended": null,
+    "end_of_support": null,
+    "end_of_rma": null
+   }
+  }
+ },
+ "K2200": {
+  "url": "https://my.f5.com/manage/s/article/K2200",
+  "lastmod": "2026-11-10T23:58:55.000Z",
+  "updated": "2026-11-10",
+  "data": {
+   "bigip": [
+    "21.1.0",
+    "17.5.1",
+    "17.1.3"
+   ],
+   "f5os": [
+    "2.0.0"
+   ],
+   "f5osa": [
+    "1.8.4"
+   ],
+   "f5osc": [
+    "1.8.3"
+   ]
+  }
+ },
+ "K21501912": {
+  "url": "https://my.f5.com/manage/s/article/K21501912",
+  "lastmod": "2026-11-05T23:43:23.000Z",
+  "updated": "2026-11-05",
+  "data": {
+   "f5os": {
+    "2": {
+     "released": "2026-06-30",
+     "support": "2029-06-30",
+     "latest": "2.0.0",
+     "lts": true
+    }
+   },
+   "f5os-c": {
+    "1.8": {
+     "released": "2025-01-28",
+     "support": "2028-01-28",
+     "latest": "1.8.3",
+     "lts": true
+    },
+    "1.6": {
+     "released": "2023-10-11",
+     "support": "2026-10-11",
+     "latest": "1.6.4",
+     "lts": true
+    },
+    "1.5": {
+     "released": "2022-08-09",
+     "support": "2024-04-11",
+     "latest": "1.5.1",
+     "lts": false
+    },
+    "1.3": {
+     "released": "2022-01-24",
+     "support": "2023-05-09",
+     "latest": "1.3.2",
+     "lts": false
+    },
+    "1.2": {
+     "released": "2021-09-22",
+     "support": "2022-07-24",
+     "latest": "1.2.2",
+     "lts": false
+    },
+    "1.1": {
+     "released": "2021-03-16",
+     "support": "2022-03-22",
+     "latest": "1.1.4",
+     "lts": false
+    }
+   },
+   "f5os-a": {
+    "1.8": {
+     "released": "2024-10-16",
+     "support": "2027-10-16",
+     "latest": "1.8.4",
+     "lts": true
+    },
+    "1.5": {
+     "released": "2023-08-31",
+     "support": "2026-08-31",
+     "latest": "1.5.4",
+     "lts": true
+    },
+    "1.7": {
+     "released": "2024-02-05",
+     "support": "2025-01-16",
+     "latest": "1.7.0",
+     "lts": false
+    },
+    "1.3": {
+     "released": "2022-11-16",
+     "support": "2023-11-30",
+     "latest": "1.3.2",
+     "lts": false
+    },
+    "1.2": {
+     "released": "2022-08-11",
+     "support": "2023-02-16",
+     "latest": "1.2.0",
+     "lts": false
+    },
+    "1.1": {
+     "released": "2022-06-06",
+     "support": "2022-12-06",
+     "latest": "1.1.1",
+     "lts": false
+    },
+    "1.0": {
+     "released": "2021-12-23",
+     "support": "2022-12-06",
+     "latest": "1.0.1",
+     "lts": false
+    }
+   }
+  }
+ },
+ "K86001294": {
+  "url": "https://my.f5.com/manage/s/article/K86001294",
+  "lastmod": "2026-11-10T08:48:45.000Z",
+  "updated": "2026-11-10",
+  "data": {
+   "releases": {
+    "BX110": [
+     "1.8.0",
+     "1.8.1",
+     "1.8.2",
+     "1.8.3",
+     "2.0.0"
+    ],
+    "BX520": [
+     "1.8.1",
+     "1.8.2",
+     "1.8.3",
+     "2.0.0"
+    ],
+    "CX1610": [
+     "1.8.1",
+     "1.8.2",
+     "1.8.3",
+     "2.0.0"
+    ],
+    "CX410": [
+     "1.8.0",
+     "1.8.1",
+     "1.8.2",
+     "1.8.3",
+     "2.0.0"
+    ],
+    "r10600": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r10800": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r10900": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r10920-DF": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r12600-DS": [
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r12800-DS": [
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r12900-DS": [
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r2600": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r2800": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r4600": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r4800": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r5600": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r5800": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r5900": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ],
+    "r5920-DF": [
+     "1.5.1",
+     "1.5.2",
+     "1.5.3",
+     "1.5.4",
+     "1.8.0",
+     "1.8.3",
+     "1.8.4",
+     "2.0.0"
+    ]
+   },
+   "revisions": {
+    "r10600": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    },
+    "r10800": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    },
+    "r10900": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    },
+    "r5600": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    },
+    "r5800": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    },
+    "r5900": {
+     "system": "F5OS-A",
+     "minimum": "1.8.4",
+     "article": "K000160915"
+    }
+   }
+  }
+ }
+}
