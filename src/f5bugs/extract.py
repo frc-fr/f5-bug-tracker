@@ -123,9 +123,10 @@ BUCKETS = ("vendor", "read", "ruled", "failed", "unaccounted")
 PARSER = hashlib.sha1((Path(__file__).parent / "parser.py").read_bytes()).hexdigest()[:12]
 
 
-def summary_path(path: Path) -> Path:
-    """Beside the cached page: what the report says of it, so that a page not downloaded again is not read again."""
-    return path.with_suffix(".report.json")
+def summary_path(output: Path, source: str, version: str) -> Path:
+    """What the report says of a page, committed in data/ like the rest of the extraction: a page
+    the CI cache no longer holds, or that is not downloaded again, is not read again."""
+    return output / source / "summaries" / f"{version}.json"
 
 
 def summarize(page: Page) -> dict:
@@ -142,12 +143,16 @@ def summarize(page: Page) -> dict:
             "headings": page.headings, "prose": sorted(page.prose, key=int)}
 
 
-def read_summary(path: Path) -> Optional[dict]:
-    target = summary_path(path)
-    if not target.exists() or target.stat().st_mtime < path.stat().st_mtime:
+def read_summary(target: Path, page: Optional[Path] = None) -> Optional[dict]:
+    """The summary of a page; with its cached copy, only if the summary is newer and of this parser."""
+    if not target.exists():
         return None
     summary = json.loads(target.read_text(encoding="utf-8"))
-    return summary if summary.get("parser") == PARSER else None
+    if page is None:
+        return summary
+    if target.stat().st_mtime < page.stat().st_mtime or summary.get("parser") != PARSER:
+        return None
+    return summary
 
 
 def extract_all(cache: Path, output: Path, changes_path: Path, pages_path: Path, report_path: Path,
@@ -203,10 +208,10 @@ def extract_all(cache: Path, output: Path, changes_path: Path, pages_path: Path,
             findings.append(report.finding("unreachable", "http", url, "", [],
                                            'the site answers "Page not found" for this release: its last reading stays'))
         elif not path.exists():
-            findings.append(report.finding("unreachable", "http", url, "", [],
-                                           "the page could not be downloaded: its last reading stays"))
+            # Not in the cache of this run: the page was read before, and its summary still describes it.
+            summary = read_summary(summary_path(output, source, version))
         else:
-            summary = None if fresh else read_summary(path)
+            summary = None if fresh else read_summary(summary_path(output, source, version), path)
             if summary is None:
                 try:
                     page = parse_page(path.read_text(encoding="utf-8", errors="replace"), url)
@@ -214,7 +219,9 @@ def extract_all(cache: Path, output: Path, changes_path: Path, pages_path: Path,
                     findings.append(report.finding("not_understood", "parse_error", url, "", [], f"the parser stops: {error!r}"))
                 else:
                     summary = summarize(page)
-                    summary_path(path).write_text(json.dumps(summary, ensure_ascii=False) + "\n", encoding="utf-8")
+                    stored = summary_path(output, source, version)
+                    stored.parent.mkdir(parents=True, exist_ok=True)
+                    stored.write_text(json.dumps(summary, ensure_ascii=False) + "\n", encoding="utf-8")
         ids = {bucket: [] for bucket in BUCKETS}
         if summary:
             if summary["missing"]:

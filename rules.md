@@ -190,7 +190,7 @@ Section identique dans forti-, juni-, palo-, cisco- et f5-bug-tracker. Toute mod
 - Tableaux « Vulnerability Fixes », colonne CVE, titres de vulnérabilité : écartés. Références CVE retirées.
 - Numéro de bug sans le suffixe de portage : `2201813-3` est le bug `2201813`.
 - Extraction incrémentale : une page n'est relue que si sa copie en cache est plus récente que son extraction.
-- Rapport complet à chaque passage : ce que le rapport dit d'une page est gardé à côté d'elle dans le cache (`<version>.report.json`) ; refait si la page est retéléchargée ou si `parser.py` change.
+- Rapport complet à chaque passage : ce que le rapport dit d'une page est commité dans `data/extracted/<série>/summaries/<version>.json` ; refait si la page est retéléchargée ou si `parser.py` change. Une page absente du cache de la CI n'est pas « inaccessible » : son résumé la décrit encore. Seule une page « Page not found » l'est.
 - Identifiant listé : cellule de tableau qui est un numéro (`2201813-3`, `BT2201813`), ou titre d'un détail (`2201813-3 : …`) ; dans une ligne lue, seule la cellule du numéro compte.
 - Règles propres à F5 : `empty_page` (page sans tableau de corrections ni de problèmes connus lisible), `behavior_change` (bugs cités dans « Behavior Change Issues in BIG-IP v14.1.x », tableau des pages 14.1.4 et 15.1.2.1 : un changement de comportement sans version qui l'apporte, écarté sans changer les données).
 - Sécurité (`security`) : tableaux « Vulnerability Fixes » et colonne CVE, titres de vulnérabilité, et détails de vulnérabilité sans ligne de tableau.

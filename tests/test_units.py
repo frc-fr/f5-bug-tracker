@@ -316,10 +316,14 @@ def test_extraction_writes_the_report_and_keeps_it_complete(tmp_path):
     # Not downloaded again, and read by another parser: the report is the same, the data is not written again.
     release = output / "bigip" / "releases" / "17.1.3.7.json"
     written = release.stat().st_mtime_ns
-    summary = cache / "bigip" / "17.1.3.7.report.json"
+    summary = output / "bigip" / "summaries" / "17.1.3.7.json"
     summary.write_text(summary.read_text(encoding="utf-8").replace(extract.PARSER, "other"), encoding="utf-8")
     assert extract.extract_all(cache, output, tmp_path / "changes.json", pages, path) == []
     assert report.load(path)["documents"] == first["documents"] and release.stat().st_mtime_ns == written
+    # A page the CI cache no longer holds is not unreachable: its summary, kept in data/, still describes it.
+    (cache / "bigip" / "17.1.3.7.html").unlink()
+    assert extract.extract_all(cache, output, tmp_path / "changes.json", pages, path) == []
+    assert report.load(path)["documents"] == first["documents"] and report.load(path)["totals"]["unreachable"] == 0
 
 
 def test_report_groups_follow_the_software_selector():
