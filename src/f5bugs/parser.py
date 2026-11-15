@@ -14,7 +14,11 @@ column names, not the markup. Old hotfixes ("v12.1.2 Hotfix 2") are the point
 releases of today (12.1.2.2).
 
 Security fixes are left out: the "Vulnerability Fixes" tables, the bugs whose
-title is a vulnerability, and the CVE references of the texts.
+title is a vulnerability, and the CVE references of the texts. So are the tables
+"Behavior Change Issues in BIG-IP v14.1.x" of 14.1.4 and 15.1.2.1.
+
+A fix detailed without a table row (1322009 in 17.1.1) is read only when its
+"Fixed Versions" name the release of the page.
 
 Every bug ID the page lists, in a table or as the title of a detail, ends in one
 bucket of the processing report: read, left out by a known rule ("ruled"), or
@@ -45,7 +49,11 @@ KNOWN = re.compile(rf"^Known Issues in {PRODUCT} v", re.I)
 THIS_RELEASE = re.compile(r"^Fixed in this Release$", re.I)
 SECURITY_SECTION = re.compile(r"^(?:Vulnerability|Security) Fixes$", re.I)
 SUBSECTION = re.compile(r"^[\w ()/&.-]{2,60} (?:Fixes|Issues)$")
-DETAILS = re.compile(rf"^(?:Cumulative fix details|Known Issue details) for {PRODUCT}", re.I)
+DETAILS = re.compile(rf"^(?:Cumulative fix details|Known Issue details|Behavior Change Issue details) for {PRODUCT}", re.I)
+FIX_DETAILS = re.compile(r"^Cumulative fix details", re.I)
+# 14.1.4 and 15.1.2.1 list one bug under "Behavior Change Issues in BIG-IP v14.1.x": a change of behavior,
+# with no release that brings it; the behavior changes the site shows are those of the fixes, in their details.
+BEHAVIOR_SECTION = re.compile(rf"^Behavior Change Issues in {PRODUCT} v", re.I)
 SECTION_LIKE = re.compile(rf"\b(?:Fixes|Issues?|details) (?:in|for|from) {PRODUCT}\b", re.I)
 # The frame of every techdocs.f5.com page, not its content: never reported as a section left unread.
 FRAME = re.compile(r"^(?:Applies To|Supplemental Document|Note: This content is cur|Updated Date|Original Publication Date|"
@@ -250,7 +258,9 @@ def parse_page(source: str, url: str = "") -> Page:
             page.version = exact
             break
     current = page.version
-    known = security = details = False
+    known = security = details = behavior = fix_details = False
+    # The fixes detailed without a table row: read once their "Fixed Versions" are known.
+    orphans: List[Bug] = []
     columns: List[str] = []
     detail: Optional[Bug] = None
     last_field = None
@@ -269,7 +279,8 @@ def parse_page(source: str, url: str = "") -> Page:
             text = event[1]
             page.prose.update(CITED.findall(text))
             subsection = not details and bool(SECURITY_SECTION.match(text) or SUBSECTION.match(text) or text == "Fixes")
-            section = bool(KNOWN.match(text) or CUMULATIVE.search(text) or DETAILS.match(text)) or not details and bool(
+            section = bool(KNOWN.match(text) or CUMULATIVE.search(text) or DETAILS.match(text)
+                           or BEHAVIOR_SECTION.match(text)) or not details and bool(
                 THIS_RELEASE.match(text) or (RELEASE_INFO.search(text) and text in reader.marked))
             # In the details, a bold text is a field name or a word of a workaround, not a section title,
             # unless it reads as one: "Behavior Change Issues in BIG-IP v14.1.x".
@@ -282,7 +293,7 @@ def parse_page(source: str, url: str = "") -> Page:
                 else:
                     top, sub = text, ""
             # The details of the fixes come before the tables of the known issues.
-            if KNOWN.match(text) or CUMULATIVE.search(text):
+            if KNOWN.match(text) or CUMULATIVE.search(text) or BEHAVIOR_SECTION.match(text):
                 details, detail = False, None
             if details and detail is not None:
                 named = field_of(text)
@@ -298,19 +309,21 @@ def parse_page(source: str, url: str = "") -> Page:
             if updated and not page.updated:
                 page.updated = f"{updated.group(3)}-{updated.group(1)}-{updated.group(2)}"
             if DETAILS.match(text):
-                details = True
+                details, fix_details, behavior = True, bool(FIX_DETAILS.match(text)), False
                 continue
             cumulative = CUMULATIVE.search(text)
             if cumulative:
                 current = normalize(cumulative.group(1) + (f".{cumulative.group(2)}" if cumulative.group(2) else ""))
-                known = security = False
+                known = security = behavior = False
             elif text.startswith("Cumulative fixes from"):
                 # A release the code cannot write: its fixes are not given to the release before.
-                current, known, security = None, False, False
+                current, known, security, behavior = None, False, False, False
             elif KNOWN.match(text):
-                known, security = True, False
+                known, security, behavior = True, False, False
+            elif BEHAVIOR_SECTION.match(text):
+                known, security, behavior = False, False, True
             elif THIS_RELEASE.match(text):
-                current, known, security = page.version, False, False
+                current, known, security, behavior = page.version, False, False, False
             elif SECURITY_SECTION.match(text):
                 security = True
             elif SUBSECTION.match(text):
@@ -338,6 +351,9 @@ def parse_page(source: str, url: str = "") -> Page:
                     note("left_out", "security", sub or top, [bug_id], "a list of security fixes")
                 else:
                     note("left_out", "security", sub or top, [bug_id], "a vulnerability fix in a list of fixes or issues")
+                continue
+            if behavior:
+                note("left_out", "behavior_change", place(), [bug_id], "a change of behavior, not a fix of a release")
                 continue
             if not known and not current:
                 note("not_understood", "release_unknown", place(), [bug_id],
@@ -369,16 +385,27 @@ def parse_page(source: str, url: str = "") -> Page:
                 continue
             bug_id, title = match.groups()
             # A detail lists its bug too: one that no table lists is a table the code does not read.
-            if bug_id not in page.listed and SECURITY.search(title):
+            rowless = bug_id not in page.listed
+            if rowless and SECURITY.search(title):
                 note("left_out", "security", place(), [bug_id], "a vulnerability fix detailed without a table row")
             page.listed.setdefault(bug_id, (url, place()))
-            if SECURITY.search(title) or (bug_id not in page.bugs and not any(bug_id in ids for ids in page.fixed.values())
-                                          and bug_id not in page.known):
-                # Not in a table, or left out with the vulnerabilities.
+            if SECURITY.search(title):
                 continue
-            detail = page.bugs.setdefault(bug_id, Bug(bug_id))
+            if bug_id not in page.bugs and not any(bug_id in ids for ids in page.fixed.values()) and bug_id not in page.known:
+                if not (rowless and fix_details):
+                    # A row the code leaves out, by a rule or as not understood: its detail is not read either.
+                    continue
+                detail = Bug(bug_id)
+                orphans.append(detail)
+            else:
+                detail = page.bugs.setdefault(bug_id, Bug(bug_id))
             detail.star = detail.star or "★" in title
             detail.title = clean(title.replace("★", "")) or detail.title
+    for orphan in orphans:
+        # Fixed in this release by its own "Fixed Versions"; otherwise the page does not say in which release.
+        if page.version in orphan.fixed_versions:
+            page.bugs[orphan.id] = orphan
+            page.fixed.setdefault(page.version, []).append(orphan.id)
     for bug in page.bugs.values():
         for name in ("symptoms", "conditions", "impact", "workaround", "fix", "behavior"):
             value = getattr(bug, name)

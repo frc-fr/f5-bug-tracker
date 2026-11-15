@@ -267,11 +267,31 @@ def test_every_listed_bug_is_accounted_for():
     page = parse_page(html, "https://techdocs.f5.com/x.html")
     buckets = page.accounting()
     assert buckets["read"] == {"2201813", "2524317"}
-    assert buckets["ruled"] == {"2693429"}
-    assert buckets["unaccounted"] == {"1001509"}
+    assert buckets["ruled"] == {"2693429", "1001509"}
+    assert buckets["unaccounted"] == set()
     assert page.listed["1001509"] == ("https://techdocs.f5.com/x.html", "Behavior Change Issues in BIG-IP v17.1.x")
-    assert [f["rule"] for f in page.findings] == ["security"] and page.skipped == 1 and not page.warnings
-    assert page.headings["Behavior Change Issues in BIG-IP v17.1.x"] is False
+    assert [f["rule"] for f in page.findings] == ["security", "behavior_change"] and page.skipped == 1 and not page.warnings
+    assert page.findings[1]["where"] == "Behavior Change Issues in BIG-IP v17.1.x"
+    assert page.headings["Behavior Change Issues in BIG-IP v17.1.x"] is True
+    # The known issues that follow are read as before.
+    assert page.known == ["2524317"] and "1001509" not in page.bugs
+
+
+def test_a_fix_detailed_without_a_table_row():
+    """17.1.1 details 1322009 among its fixes without a table row: read when its Fixed Versions name the page."""
+    detail = """<div><h4><a name="A1322009"></a>1322009 : UCS restore fails with ifile not found error</h4>
+<p><strong>Component: </strong>TMOS</p><p><strong>Symptoms:</strong><br>The loading configuration process failed.</p>
+<p><strong>Fixed Versions:</strong><br>{}</p></div>
+<a name="KnownIssues"></a>"""
+    page = parse_page(RECENT.replace('<a name="KnownIssues"></a>', detail.format("17.1.3.7")), "u")
+    assert page.fixed["17.1.3.7"] == ["1322009"] and page.bugs["1322009"].component == "TMOS"
+    assert page.accounting()["unaccounted"] == set()
+    # Fixed in another release: the page does not say which of its line, so the bug is not read.
+    page = parse_page(RECENT.replace('<a name="KnownIssues"></a>', detail.format("17.1.3.6")), "u")
+    assert "1322009" not in page.bugs and page.accounting()["unaccounted"] == {"1322009"}
+    # Among the known issues, a detail without a row is not read either.
+    page = parse_page(RECENT.replace("</div>\n</body>", "</div>" + detail.format("17.1.3.7") + "</body>"), "u")
+    assert "1322009" not in page.bugs and page.accounting()["unaccounted"] == {"1322009"}
 
 
 def test_a_cumulative_section_without_release_is_not_understood():
@@ -300,3 +320,9 @@ def test_extraction_writes_the_report_and_keeps_it_complete(tmp_path):
     summary.write_text(summary.read_text(encoding="utf-8").replace(extract.PARSER, "other"), encoding="utf-8")
     assert extract.extract_all(cache, output, tmp_path / "changes.json", pages, path) == []
     assert report.load(path)["documents"] == first["documents"] and release.stat().st_mtime_ns == written
+
+
+def test_report_groups_follow_the_software_selector():
+    """BIG-IP, F5OS-A, F5OS-C, then the shared notes of F5OS 2.x, named after both systems that show them."""
+    from f5bugs.extract import GROUPS
+    assert list(GROUPS.values()) == ["BIG-IP", "F5OS-A", "F5OS-C", "F5OS-A / F5OS-C (2.x)"]

@@ -48,10 +48,10 @@ Vos recherches et vos filtres restent dans votre navigateur : ils ne sont ni enr
 - Les correctifs de sécurité sont écartés (tableaux « Vulnerability Fixes », titres de vulnérabilités) et les
   références CVE retirées des textes.
 - Chaque numéro de bug listé par une page, en tableau ou en titre de détail, finit lu, écarté par une règle
-  ou non compris. Un numéro compté nulle part rend la page « suspecte » : c'est le cas des tableaux
-  « Behavior Change Issues » des pages 14.1.4 et 15.1.2.1, que le site ne lit pas. Une section que le code
-  ne sait pas situer est « non comprise » : le reste de la page est publié, et la page « État du
-  traitement » le montre.
+  ou non compris. Un numéro compté nulle part rend la page « suspecte ». Les tableaux « Behavior Change
+  Issues » des pages 14.1.4 et 15.1.2.1 sont écartés par une règle : un changement de comportement, pas la
+  correction d'une version. Une section que le code ne sait pas situer est « non comprise » : le reste de
+  la page est publié, et la page « État du traitement » le montre.
 
 ## Sources
 

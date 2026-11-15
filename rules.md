@@ -191,12 +191,12 @@ Section identique dans forti-, juni-, palo-, cisco- et f5-bug-tracker. Toute mod
 - Extraction incrémentale : une page n'est relue que si sa copie en cache est plus récente que son extraction.
 - Rapport complet à chaque passage : ce que le rapport dit d'une page est gardé à côté d'elle dans le cache (`<version>.report.json`) ; refait si la page est retéléchargée ou si `parser.py` change.
 - Identifiant listé : cellule de tableau qui est un numéro (`2201813-3`, `BT2201813`), ou titre d'un détail (`2201813-3 : …`) ; dans une ligne lue, seule la cellule du numéro compte.
-- Règle propre à F5 : `empty_page` (page sans tableau de corrections ni de problèmes connus lisible).
+- Règles propres à F5 : `empty_page` (page sans tableau de corrections ni de problèmes connus lisible), `behavior_change` (bugs cités dans « Behavior Change Issues in BIG-IP v14.1.x », tableau des pages 14.1.4 et 15.1.2.1 : un changement de comportement sans version qui l'apporte, écarté sans changer les données).
 - Sécurité (`security`) : tableaux « Vulnerability Fixes » et colonne CVE, titres de vulnérabilité, et détails de vulnérabilité sans ligne de tableau.
 - Section « Cumulative fixes from » dont la version ne se lit pas : bugs non compris (`release_unknown`), jamais rattachés à la version précédente.
 - Page devenue « Page not found », ou absente du cache alors qu'elle a été lue : inaccessible, dernière lecture gardée. Page d'une autre version : non comprise, dernière lecture gardée.
-- Groupes du rapport : BIG-IP, F5OS-A, F5OS-C et F5OS 2.x (série commune, comptée une fois).
-- Non comptés connus : tableaux « Behavior Change Issues in BIG-IP v14.1.x » de 14.1.4 et 15.1.2.1, non lus (une règle reste à décider) ; bug détaillé sans ligne de tableau (1322009 dans 17.1.1).
+- Groupes du rapport : BIG-IP, F5OS-A, F5OS-C, puis « F5OS-A / F5OS-C (2.x) » : la série commune de F5OS 2.x, montrée dans les deux logiciels, comptée une fois.
+- Correction détaillée sans ligne de tableau (1322009 dans 17.1.1) : lue seulement si ses « Fixed Versions » citent la version de la page ; sinon non comptée. Détail de problème connu sans ligne : non compté.
 - Engineering Hotfixes : seules leurs versions sont écartées des « Fixed Versions » ; aucun bug n'est écarté pour eux.
 - Cadre de techdocs.f5.com (« Applies To », « Supplemental Document », date de mise à jour…) jamais listé comme contenu non exploité.
 

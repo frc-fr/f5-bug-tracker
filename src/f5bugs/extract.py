@@ -114,8 +114,9 @@ def page_changes(page: Page, previous: Optional[dict], date: str) -> List[dict]:
     return entries
 
 
-# The name of each set of pages in the processing report: F5OS 2.x has one set of notes for rSeries and VELOS.
-GROUPS = {"bigip": "BIG-IP", "f5os-a": "F5OS-A", "f5os-c": "F5OS-C", "f5os": "F5OS 2.x"}
+# The name of each set of pages in the processing report: F5OS 2.x has one set of notes for rSeries and VELOS,
+# shown under both systems of the site, counted once.
+GROUPS = {"bigip": "BIG-IP", "f5os-a": "F5OS-A", "f5os-c": "F5OS-C", "f5os": "F5OS-A / F5OS-C (2.x)"}
 PRODUCTS = {"bigip": "BIG-IP", "f5os-a": "F5OS-A", "f5os-c": "F5OS-C", "f5os": "F5OS"}
 BUCKETS = ("vendor", "read", "ruled", "failed", "unaccounted")
 # What the code reads of a page changes with the parser: a summary made by another parser is made again.
