@@ -55,12 +55,10 @@ jobs:
       - name: Collect the release notes and the F5 articles
         run: f5bugs collect
 
-      # Any warning stops here: the site keeps its last valid data.
+      # Stops here only when too few pages are read: the site then keeps its last version.
+      # Otherwise what the code cannot read goes to data/report.json, shown on etat.html.
       - name: Extract the bugs
         run: f5bugs extract
-
-      - name: Check the real pages
-        run: pytest -m corpus
 
       # A batch of the F5 Bug Tracker per run: the first collection spreads over several runs.
       - name: Read the Bug Tracker
@@ -85,3 +83,12 @@ jobs:
 
       - id: deploy
         uses: actions/deploy-pages@v4
+
+      # After the publication: a red run asks for the code to be adapted, the site is already up to date.
+      - name: Check the real pages
+        if: success()
+        run: pytest -m corpus
+
+      - name: Check the processing report
+        if: success() || failure()
+        run: f5bugs check

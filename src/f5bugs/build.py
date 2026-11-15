@@ -25,6 +25,7 @@ from typing import Dict, List, Optional
 from .collect import notes_url, page_url
 from .extract import load_bugs, read_changes, read_release
 from .feed import build_feed, latest_changes
+from .report import load as load_report
 from .normalize import FAMILIES, canonical, families_in, family_of, model_key, models_in
 from .versions import SOURCES, SYSTEMS, branch_key, branch_of, is_point, version_key
 
@@ -312,7 +313,8 @@ def build_data(system: str, releases: Dict[str, dict], bugs: Dict[str, dict], tr
 
 
 def build_site(extracted: Path, changes_path: Path, articles_path: Path, schedule_path: Path, sources: Path, dist: Path,
-               base_url: str, tracker_path: Path, notes_path: Optional[Path] = None) -> dict:
+               base_url: str, tracker_path: Path, notes_path: Optional[Path] = None,
+               report_path: Path = Path("data/report.json")) -> dict:
     tracker = {entry["id"]: entry for entry in load_json(tracker_path, {"bugs": []})["bugs"]}
     articles = load_json(articles_path, {})
     now = datetime.now(timezone.utc)
@@ -355,4 +357,8 @@ def build_site(extracted: Path, changes_path: Path, articles_path: Path, schedul
             "hardware": len(data["index"]["hardware"]["models"]),
         }
     (dist / "feed.xml").write_bytes(build_feed(latest_changes(all_changes, documents), descriptions, base_url))
+    # What the last run could not read, for etat.html.
+    processing = load_report(report_path)
+    processing["updated"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    (dist / "data" / "report.json").write_text(json.dumps(processing, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return summary

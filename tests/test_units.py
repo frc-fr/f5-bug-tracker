@@ -258,3 +258,45 @@ def test_odd_cve_references_are_caught():
     from f5bugs.parser import CVE, SECURITY, clean
     assert SECURITY.search("CVECVE-2016-9063 firefox: Possible integer overflow")
     assert clean("versions were potentially susceptible to: CVE-20919-8696") == "versions were potentially susceptible to:"
+
+
+def test_every_listed_bug_is_accounted_for():
+    html = RECENT.replace("""<a name="KnownIssues"></a>""", """<p><b><u>Behavior Change Issues in BIG-IP v17.1.x</u></b></p>
+<table><tr><td><u>ID Number</u></td><td><u>Description</u></td></tr><tr><td>1001509-1</td><td>Forged certificates</td></tr></table>
+<a name="KnownIssues"></a>""")
+    page = parse_page(html, "https://techdocs.f5.com/x.html")
+    buckets = page.accounting()
+    assert buckets["read"] == {"2201813", "2524317"}
+    assert buckets["ruled"] == {"2693429"}
+    assert buckets["unaccounted"] == {"1001509"}
+    assert page.listed["1001509"] == ("https://techdocs.f5.com/x.html", "Behavior Change Issues in BIG-IP v17.1.x")
+    assert [f["rule"] for f in page.findings] == ["security"] and page.skipped == 1 and not page.warnings
+    assert page.headings["Behavior Change Issues in BIG-IP v17.1.x"] is False
+
+
+def test_a_cumulative_section_without_release_is_not_understood():
+    html = OLD.replace("v12.1.2 Hotfix 2 that are included in this release</u>", "v12.1.2-EHF7 that are included in this release</u>")
+    page = parse_page(html, "u")
+    assert "590795" not in {i for ids in page.fixed.values() for i in ids}
+    assert page.accounting()["failed"] == {"590795"} and page.warnings
+
+
+def test_extraction_writes_the_report_and_keeps_it_complete(tmp_path):
+    import json
+    from f5bugs import extract, report
+    cache, output, pages, path = tmp_path / "html", tmp_path / "extracted", tmp_path / "pages.json", tmp_path / "report.json"
+    (cache / "bigip").mkdir(parents=True)
+    (cache / "bigip" / "17.1.3.7.html").write_text(RECENT, encoding="utf-8")
+    pages.write_text(json.dumps({"pages": [{"source": "bigip", "version": "17.1.3.7"},
+                                           {"source": "bigip", "version": "17.1.3.8", "missing": True}]}), encoding="utf-8")
+    assert extract.extract_all(cache, output, tmp_path / "changes.json", pages, path) == []
+    first = report.load(path)
+    assert first["totals"] == {"documents": 1, "read": 0, "left_out": 1, "suspect": 0, "not_understood": 0, "unreachable": 0}
+    assert first["groups"][0]["name"] == "BIG-IP" and first["groups"][0]["ruled"] == 1
+    # Not downloaded again, and read by another parser: the report is the same, the data is not written again.
+    release = output / "bigip" / "releases" / "17.1.3.7.json"
+    written = release.stat().st_mtime_ns
+    summary = cache / "bigip" / "17.1.3.7.report.json"
+    summary.write_text(summary.read_text(encoding="utf-8").replace(extract.PARSER, "other"), encoding="utf-8")
+    assert extract.extract_all(cache, output, tmp_path / "changes.json", pages, path) == []
+    assert report.load(path)["documents"] == first["documents"] and release.stat().st_mtime_ns == written

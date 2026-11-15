@@ -15,16 +15,27 @@ releases of today (12.1.2.2).
 
 Security fixes are left out: the "Vulnerability Fixes" tables, the bugs whose
 title is a vulnerability, and the CVE references of the texts.
+
+Every bug ID the page lists, in a table or as the title of a detail, ends in one
+bucket of the processing report: read, left out by a known rule ("ruled"), or
+not understood ("failed"). An ID found in none of them is a silent path of the
+code: the report calls the page suspect.
 """
 import html
 import re
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set, Tuple
 
+from .report import accounting, finding
 from .versions import normalize, train_of, version_key
 
 BUG_ID = re.compile(r"^\s*(\d{5,8})(?:-\d+)?\s*$")
+# A cell that is a bug ID in any F5 writing ("2201813-3", "BT2201813", "ID2201813"): what the page lists,
+# even in a form the parser does not read. In a row the parser reads, only its ID cell counts.
+LISTED = re.compile(r"^\W*(?:ID|BT)?\s?(\d{5,8})(?:-\d+)?\W*$")
+# A bug the text cites outside the lists: "ID1032405", "BT1032405".
+CITED = re.compile(r"\b(?:ID|BT)(\d{6,8})\b")
 PRODUCT = r"(?:BIG-IP|F5OS-A|F5OS-C|F5OS)"
 # "BIG-IP 17.1.3.7 Fixes…", "F5OS-A 1.8.4-HR-1 Fixes…", "F5OS-A 1.8.4 Critical Release Fixes…", "F5OS-2.0.0 Fixes…".
 TITLE = re.compile(rf"({PRODUCT})[\s-]+(\d+(?:\.\d+){{2,3}}(?:[.\s-]*(?:HR-?\d+|Critical Release|CR))?)\s+Fixes and Known Issues", re.I)
@@ -35,6 +46,12 @@ THIS_RELEASE = re.compile(r"^Fixed in this Release$", re.I)
 SECURITY_SECTION = re.compile(r"^(?:Vulnerability|Security) Fixes$", re.I)
 SUBSECTION = re.compile(r"^[\w ()/&.-]{2,60} (?:Fixes|Issues)$")
 DETAILS = re.compile(rf"^(?:Cumulative fix details|Known Issue details) for {PRODUCT}", re.I)
+SECTION_LIKE = re.compile(rf"\b(?:Fixes|Issues?|details) (?:in|for|from) {PRODUCT}\b", re.I)
+# The frame of every techdocs.f5.com page, not its content: never reported as a section left unread.
+FRAME = re.compile(r"^(?:Applies To|Supplemental Document|Note: This content is cur|Updated Date|Original Publication Date|"
+                   r"Manual Chapter|Copyright|Have a Question|Follow Us|About F5|Education|F5 Sites|Support Tasks)", re.I)
+# Read for the release and the date: "BIG-IP Release Information", "F5OS-A 1.5.4 Critical Release - Release Information".
+RELEASE_INFO = re.compile(r"Release Information$", re.I)
 DETAIL_TITLE = re.compile(r"^\s*(\d{5,8})(?:-\d+)?\s*:\s*(.*)$", re.S)
 # F5 sometimes doubles the prefix ("CVECVE-2016-9063") or mistypes the year ("CVE-20919-8696").
 SECURITY = re.compile(r"CVE-\d{4,5}-\d+|vulnerabilit", re.I)
@@ -89,8 +106,28 @@ class Page:
     fixed: Dict[str, List[str]] = field(default_factory=dict)
     known: List[str] = field(default_factory=list)
     bugs: Dict[str, Bug] = field(default_factory=dict)
+    # The security fixes left out, one per table row.
     skipped: int = 0
-    warnings: List[str] = field(default_factory=list)
+    # What is not read, and why: a known rule ("left_out"), or a layout to adapt the code to.
+    findings: List[dict] = field(default_factory=list)
+    # Each bug ID the page lists: (page, place) where it lists it first.
+    listed: Dict[str, Tuple[str, str]] = field(default_factory=dict)
+    # Each section title, and whether the code reads it.
+    headings: Dict[str, bool] = field(default_factory=dict)
+    # Bug IDs the text cites outside the lists.
+    prose: Set[str] = field(default_factory=set)
+
+    @property
+    def warnings(self) -> List[str]:
+        """What the code cannot read: it has to be adapted."""
+        return [f"{f['count']} bugs under {f['where']!r}: {f['detail']}" for f in self.findings if f["kind"] == "not_understood"]
+
+    def read(self) -> Set[str]:
+        return {i for ids in self.fixed.values() for i in ids} | set(self.known)
+
+    def accounting(self) -> Dict[str, Set[str]]:
+        """Each bug ID the page lists, in one bucket: read, ruled out, failed, or unaccounted."""
+        return accounting(set(self.listed), self.read(), self.findings)
 
 
 class Reader(HTMLParser):
@@ -109,6 +146,10 @@ class Reader(HTMLParser):
         self._toc = 0
         self._h4: Optional[List[str]] = None
         self._href: Optional[str] = None
+        # The texts set apart outside the tables (underlined, bold, h2): the section titles are among them.
+        self.marked: Set[str] = set()
+        self._mark: Optional[List[str]] = None
+        self._mark_tag = ""
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -118,6 +159,8 @@ class Reader(HTMLParser):
             self._toc += 1
         if tag == "a" and attrs.get("href"):
             self._href = attrs["href"]
+        if tag in ("u", "b", "strong", "h2") and not self._table and self._mark is None:
+            self._mark, self._mark_tag = [], tag
         if tag == "table":
             self.flush()
             self._table += 1
@@ -138,6 +181,11 @@ class Reader(HTMLParser):
             if self._toc:
                 self._toc -= 1
             self._href = None
+        if tag == self._mark_tag and self._mark is not None:
+            text = " ".join("".join(self._mark).split())
+            if text:
+                self.marked.add(text)
+            self._mark = None
         if tag == "td" and self._cell is not None and self._row is not None:
             self._row.append(" ".join("".join(self._cell).split()))
             self._cell = None
@@ -155,6 +203,8 @@ class Reader(HTMLParser):
     def handle_data(self, data):
         if self._title:
             self.title += data
+        if self._mark is not None:
+            self._mark.append(data)
         if self._cell is not None:
             self._cell.append(data)
             if self._href and self._links is not None and data.strip():
@@ -178,7 +228,7 @@ def field_of(text: str):
     return (name, rest.strip()) if name else None
 
 
-def parse_page(source: str) -> Page:
+def parse_page(source: str, url: str = "") -> Page:
     reader = Reader()
     reader.feed(source)
     reader.flush()
@@ -204,10 +254,33 @@ def parse_page(source: str) -> Page:
     columns: List[str] = []
     detail: Optional[Bug] = None
     last_field = None
+    # Where the page is: its section ("Cumulative fixes from BIG-IP v17.1.3.6…") and subsection ("TMOS Fixes").
+    top = sub = ""
+
+    def place() -> str:
+        return " / ".join(part for part in (top, sub) if part)
+
+    def note(kind: str, rule: str, where: str, ids: List[str], why: str) -> None:
+        page.findings.append(finding(kind, rule, url, where, ids, why))
+
     for event in reader.events:
         kind = event[0]
         if kind == "text":
             text = event[1]
+            page.prose.update(CITED.findall(text))
+            subsection = not details and bool(SECURITY_SECTION.match(text) or SUBSECTION.match(text) or text == "Fixes")
+            section = bool(KNOWN.match(text) or CUMULATIVE.search(text) or DETAILS.match(text)) or not details and bool(
+                THIS_RELEASE.match(text) or (RELEASE_INFO.search(text) and text in reader.marked))
+            # In the details, a bold text is a field name or a word of a workaround, not a section title,
+            # unless it reads as one: "Behavior Change Issues in BIG-IP v14.1.x".
+            other = text in reader.marked and not text.endswith(":") and len(text) <= 120 and (
+                not details or bool(SECTION_LIKE.search(text)))
+            if (subsection or section or other) and not FRAME.match(text):
+                page.headings[text] = page.headings.get(text, False) or subsection or section
+                if subsection:
+                    sub = text
+                else:
+                    top, sub = text, ""
             # The details of the fixes come before the tables of the known issues.
             if KNOWN.match(text) or CUMULATIVE.search(text):
                 details, detail = False, None
@@ -231,6 +304,9 @@ def parse_page(source: str) -> Page:
             if cumulative:
                 current = normalize(cumulative.group(1) + (f".{cumulative.group(2)}" if cumulative.group(2) else ""))
                 known = security = False
+            elif text.startswith("Cumulative fixes from"):
+                # A release the code cannot write: its fixes are not given to the release before.
+                current, known, security = None, False, False
             elif KNOWN.match(text):
                 known, security = True, False
             elif THIS_RELEASE.match(text):
@@ -239,12 +315,17 @@ def parse_page(source: str) -> Page:
                 security = True
             elif SUBSECTION.match(text):
                 security = False
-        elif kind == "row" and not details:
+        elif kind == "row":
             cells, links = event[1], event[2]
+            match = BUG_ID.match(cells[0]) if cells else None
+            # A row the parser reads lists the bug of its ID cell; another lists any cell that is a bug ID.
+            for bug_id in [match.group(1)] if match else [m.group(1) for cell in cells for m in [LISTED.match(cell)] if m]:
+                page.listed.setdefault(bug_id, (url, place()))
+            if details:
+                continue
             if cells and cells[0].lower() == "id number":
                 columns = [cell.lower() for cell in cells]
                 continue
-            match = BUG_ID.match(cells[0]) if cells else None
             if not match:
                 continue
             row = dict(zip(columns, cells))
@@ -253,6 +334,14 @@ def parse_page(source: str) -> Page:
             if security or "cve" in columns or SECURITY.search(description):
                 page.skipped += 1
                 page.bugs.pop(bug_id, None)
+                if security or "cve" in columns:
+                    note("left_out", "security", sub or top, [bug_id], "a list of security fixes")
+                else:
+                    note("left_out", "security", sub or top, [bug_id], "a vulnerability fix in a list of fixes or issues")
+                continue
+            if not known and not current:
+                note("not_understood", "release_unknown", place(), [bug_id],
+                     "a section of cumulative fixes whose release the code cannot read")
                 continue
             bug = page.bugs.setdefault(bug_id, Bug(bug_id))
             bug.title = bug.title or clean(description.replace("★", ""))
@@ -268,7 +357,7 @@ def parse_page(source: str) -> Page:
             if known:
                 if bug_id not in page.known:
                     page.known.append(bug_id)
-            elif current:
+            else:
                 listed = page.fixed.setdefault(current, [])
                 if bug_id not in listed:
                     listed.append(bug_id)
@@ -279,6 +368,10 @@ def parse_page(source: str) -> Page:
             if not match:
                 continue
             bug_id, title = match.groups()
+            # A detail lists its bug too: one that no table lists is a table the code does not read.
+            if bug_id not in page.listed and SECURITY.search(title):
+                note("left_out", "security", place(), [bug_id], "a vulnerability fix detailed without a table row")
+            page.listed.setdefault(bug_id, (url, place()))
             if SECURITY.search(title) or (bug_id not in page.bugs and not any(bug_id in ids for ids in page.fixed.values())
                                           and bug_id not in page.known):
                 # Not in a table, or left out with the vulnerabilities.
@@ -293,7 +386,8 @@ def parse_page(source: str) -> Page:
                 value = clean(value)
                 setattr(bug, name, None if not value or NONE.match(value) else value)
     if not page.fixed and not page.known:
-        page.warnings.append("no fix and no known issue found")
+        page.findings.append(finding("not_understood", "empty_page", url, "", [], "no fix and no known issue found"))
+    page.prose -= set(page.listed)
     return page
 
 

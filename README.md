@@ -20,6 +20,7 @@ Les informations sont fournies à titre indicatif : vérifiez toujours la docume
   changements de comportement (« Behavior Change ») des corrections traversées
 - Onglet Matériel : versions où F5 liste chaque modèle, statut et fin de support selon F5
 - Suivi des nouveautés, avec un flux RSS/Atom
+- Page « État du traitement », en bas de page : ce que le dernier traitement n'a pas lu, et pourquoi
 - Interface en français et en anglais
 
 Vos recherches et vos filtres restent dans votre navigateur : ils ne sont ni enregistrés ni transmis.
@@ -46,6 +47,11 @@ Vos recherches et vos filtres restent dans votre navigateur : ils ne sont ni enr
   branche, comme dans les anciennes notes BIG-IP.
 - Les correctifs de sécurité sont écartés (tableaux « Vulnerability Fixes », titres de vulnérabilités) et les
   références CVE retirées des textes.
+- Chaque numéro de bug listé par une page, en tableau ou en titre de détail, finit lu, écarté par une règle
+  ou non compris. Un numéro compté nulle part rend la page « suspecte » : c'est le cas des tableaux
+  « Behavior Change Issues » des pages 14.1.4 et 15.1.2.1, que le site ne lit pas. Une section que le code
+  ne sait pas situer est « non comprise » : le reste de la page est publié, et la page « État du
+  traitement » le montre.
 
 ## Sources
 
@@ -85,8 +91,10 @@ Vos recherches et vos filtres restent dans votre navigateur : ils ne sont ni enr
 
 Un traitement GitHub Actions s'exécute du lundi au vendredi à 9 h 15, 14 h 15 et 19 h 00, heure de
 Paris, et sur lancement manuel. Cet horaire est décrit dans `sources/schedule.yml`, que le site lit pour
-l'afficher. Il collecte, extrait, contrôle, lit un lot du Bug Tracker, puis publie le
-site sur GitHub Pages. Si un contrôle échoue, le site garde ses dernières données valides.
+l'afficher. Il collecte, extrait, lit un lot du Bug Tracker, publie le site sur GitHub Pages, puis contrôle.
+Ce que le code ne sait pas lire est publié dans `data/report.json` et sur la page « État du traitement » ;
+le passage finit en échec pour le signaler. La mise à jour ne s'arrête que si moins de 75 % des pages sont
+lues : le site garde alors sa version précédente.
 
 ## Liens utiles chez F5
 
@@ -114,6 +122,7 @@ Pour récupérer les pages puis prévisualiser le site :
 ```sh
 .venv/bin/f5bugs collect
 .venv/bin/f5bugs extract
+.venv/bin/f5bugs check
 .venv/bin/f5bugs tracker
 .venv/bin/f5bugs --base-url http://localhost:8040/ build
 python3 -m http.server 8040 --directory dist
